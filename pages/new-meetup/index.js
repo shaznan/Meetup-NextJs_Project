@@ -1,7 +1,7 @@
 import NewMeetupForm from "../../components/meetups/NewMeetupForm";
 import axios from "axios";
-import {Fragment} from 'react'
-import Head from 'next/head'
+import { Fragment } from "react";
+// import Head from "next/head";
 
 function NewMeetupPage() {
   function addMeetupHandler(enteredMeetupData) {
@@ -28,14 +28,16 @@ function NewMeetupPage() {
     // console.log(data);
   }
 
-  return(
+  //returning jsx and adding metaData
+  return (
     <Fragment>
-           <Head>
-        <Title>React Meetups</Title>
-        <meta name="description" content="Browse Huge List of Meetup places in Sri Lanka" />
-      </Head>
-      <NewMeetupForm onAddMeetup={addMeetupHandler} />);
+      {/* <Head>
+        <title>Add a new Meetup</title>
+        <meta name="description" content="Add a new meetup and create " />
+      </Head> */}
+      <NewMeetupForm onAddMeetup={addMeetupHandler} />;
     </Fragment>
+  );
 }
 
 export default NewMeetupPage;

@@ -1,18 +1,19 @@
 import React, { Fragment } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 import { MongoClient } from "mongodb"; //to import data from server
-import Head from "next/head";
+// import Head from "next/head";
 
 function HomePage(props) {
   //usestate([])
   //useEffect(()=>{})
 
+  //returning jsx and adding metadata
   return (
     <Fragment>
-      <Head>
-        <Title>React Meetups</Title>
-        <meta name="description" content="Browse Huge List" />
-      </Head>
+      {/* <Head>
+        <title>React Meetups in Sri Lanka</title>
+        <meta name="description" content="Browse Huge List of Meetup places in Sri Lanka" />
+      </Head> */}
       <MeetupList meetups={props.meetups} />
     </Fragment>
   );

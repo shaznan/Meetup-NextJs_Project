@@ -1,23 +1,16 @@
-import { Fragment } from "react";
 import MeetupDetail from "../../components/meetups/MeetupDetail";
-import Head from "next/head"; //import head to add meta datac
+// import Head from "next/head"; //import head to add meta datac
 import { MongoClient, ObjectId } from "mongodb"; //to dynamically render each item page
 
 function MeetupDetails(props) {
   //Main component that will receive the props that were generated in the pre-rendered file
   return (
-    <Fragment>
-      <Head>
-        <title>{props.meetupData.title}</title>
-        <meta name="description" content={props.meetupData.description} />
-      </Head>
-      <MeetupDetail
-        image={props.meetupData.image}
-        title={props.meetupData.title}
-        address={props.meetupData.address}
-        description={props.meetupData.description}
-      />
-    </Fragment>
+    <MeetupDetail
+      image={props.meetupData.image}
+      title={props.meetupData.title}
+      address={props.meetupData.address}
+      description={props.meetupData.description}
+    />
   );
 }
 
@@ -35,7 +28,7 @@ export async function getStaticPaths() {
 
   return {
     // fallback: false,
-    fallback: "blocking", //it will re-render the paths if new enteries are made,
+    fallback: true, //it will re-render the paths if new enteries are made,
     //blocking will show content in the new page only after that new component is rendered, true will show parts of the page and wait for the rest of the components to be rendered, where you need to add a loading spinner as well
     paths: meetups.map((meetup) => ({
       //
